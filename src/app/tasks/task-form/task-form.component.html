@@ -1,0 +1,35 @@
+<!-- task-form.component.html -->
+<div class="modal-backdrop" (click)="onCancel()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <h3>{{ isEditMode ? 'Update Task' : 'Add Task' }}</h3>
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" [(ngModel)]="task.title" name="title" placeholder="Title" required />
+      <textarea [(ngModel)]="task.description" name="description" placeholder="Description"></textarea>
+
+      <label>Status:</label>
+      <ng-container *ngIf="isEditMode; else fixedStatus">
+        <select [(ngModel)]="task.status" name="status">
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </ng-container>
+      <ng-template #fixedStatus>
+        <input type="text" value="To Do" disabled />
+      </ng-template>
+
+      <label>Type:</label>
+      <select [(ngModel)]="task.type" name="type">
+        <option value="Feature">Feature</option>
+        <option value="Bug">Bug</option>
+        <option value="Story">Story</option>
+        <option value="Task">Task</option>
+      </select>
+
+      <div class="actions">
+        <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

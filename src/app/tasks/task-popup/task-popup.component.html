@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Task Details</h2>
+<mat-dialog-content>
+  <p><strong>Title:</strong> {{ data.task.title }}</p>
+  <p><strong>Description:</strong> {{ data.task.description }}</p>
+  <p><strong>Status:</strong> {{ data.task.status }}</p>
+  <p><strong>Type:</strong> {{ data.task.type }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="openForm()">Update</button>
+  <!-- Conditionally show modal -->
+  <app-task-form *ngIf="isEditMode" [taskData]="data.task" (taskCreated)="updateTask(data.task.id, $event)" (closed)="closeForm()">
+  </app-task-form>
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

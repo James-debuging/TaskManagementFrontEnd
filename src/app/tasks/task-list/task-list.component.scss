@@ -1,0 +1,119 @@
+.task-board {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 16px;
+  background-color: #f4f5f7;
+}
+
+.column {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #172b4d;
+}
+
+.task-card {
+  background-color: #fdfdfd;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #e1e4e8;
+  transition: box-shadow 0.2s;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.task-card h4 {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.task-card p {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.label {
+  background-color: #e4e6eb;
+  color: #4b5563;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.pagination button {
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #dfe1e6;
+}
+
+.pagination button:disabled {
+  background-color: #e1e1e1;
+  cursor: not-allowed;
+}
+
+.add-task-float-btn {
+  background-color: #0052cc;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.add-task-float-btn:hover {
+  background-color: #0041a8;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #d11a2a;
+  font-size: 18px;
+  float: right;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  color: #ff4d4f;
+}
+
+

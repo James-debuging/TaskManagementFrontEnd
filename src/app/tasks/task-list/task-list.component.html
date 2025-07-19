@@ -1,0 +1,60 @@
+<!-- task-list.component.html -->
+
+<!-- Add Button -->
+<button class="add-task-float-btn" (click)="openForm()">+</button>
+
+<!-- Conditionally show modal -->
+<app-task-form *ngIf="showForm" (taskCreated)="addTask($event)" (closed)="closeForm()">
+</app-task-form>
+
+<div class="task-board">
+  <div class="column">
+    <h3>TO DO</h3>
+    <div *ngFor="let task of todoTasks" class="task-card" (click)="openDetail(task)">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <span class="label">{{ task.type }}</span>
+      <button class="delete-btn" (click)="deleteTask(task.id, task.status); $event.stopPropagation()">
+        🗑️
+      </button>
+    </div>
+    <div class="pagination">
+      <button (click)="changePage('TODO', 'prev')" [disabled]="todoPage === 1">Prev</button>
+      <span>Page {{ todoPage }}</span>
+      <button (click)="changePage('TODO', 'next')" [disabled]="todoPage >= todoTasksLastPage">
+        Next</button>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3>IN PROGRESS</h3>
+    <div *ngFor="let task of inProgressTasks" class="task-card" (click)="openDetail(task)">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <span class="label">{{ task.type }}</span>
+
+      <button class="delete-btn" (click)="deleteTask(task.id, task.status); $event.stopPropagation()">🗑️</button>
+    </div>
+    <div class="pagination">
+      <button (click)="changePage('IN_PROGRESS', 'prev')" [disabled]="inProgressPage === 1">Prev</button>
+      <span>Page {{ inProgressPage }}</span>
+      <button (click)="changePage('IN_PROGRESS', 'next')"
+        [disabled]="inProgressPage >= inProgressTaskLastPage">Next</button>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3>DONE</h3>
+    <div *ngFor="let task of doneTasks" class="task-card" (click)="openDetail(task)">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <span class="label">{{ task.type }}</span>
+      <button class="delete-btn" (click)="deleteTask(task.id, task.status); $event.stopPropagation()">🗑️</button>
+    </div>
+    <div class="pagination">
+      <button (click)="changePage('DONE', 'prev')" [disabled]="donePage === 1">Prev</button>
+      <span>Page {{ donePage }}</span>
+      <button (click)="changePage('DONE', 'next')" [disabled]="donePage >= donesLastTaskPage">Next</button>
+    </div>
+  </div>
+</div>
