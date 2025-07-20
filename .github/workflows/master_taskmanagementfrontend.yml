@@ -60,5 +60,6 @@ jobs:
         with:
           app-name: 'TaskManagementFrontEnd'
           slot-name: 'Production'
-          package: .
+          package: dist/TaskManagementFrontend/browser
+
           
